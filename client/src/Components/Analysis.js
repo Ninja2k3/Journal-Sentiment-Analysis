@@ -11,7 +11,7 @@ function Analysis(){
     function col(score){
         if(score<0)
             return 'red'
-        if(score>0)
+        if(score>=0.6)
             return 'green'
         else
             return 'black'

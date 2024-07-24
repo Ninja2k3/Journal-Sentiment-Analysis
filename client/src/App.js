@@ -7,6 +7,7 @@ import './App.css';
 import CreateEntry from "./Components/CreateEntry";
 import Entries from "./Components/Entries";
 import Navigation from "./Components/Navigation";
+import Plot from "./Components/Plot";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
       <Route path="/analysis/:id" element={<Analysis/>}/>
       <Route path="/entries" element={<MainLayout><Entries /></MainLayout>} />
       <Route path="/create" element={<Form/>}/>
+      <Route path="/plot" element={<Plot/>}/>
     </Routes>
   </BrowserRouter>  
   

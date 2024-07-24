@@ -8,6 +8,7 @@ function Navigation() {
       <ul>
         <li><Link to="/entries">All Entries</Link></li>
         <li><Link to="/create">Create New Entry</Link></li>
+        <li><Link to="/plot">Statistics</Link></li>
       </ul>
     </nav>
   );

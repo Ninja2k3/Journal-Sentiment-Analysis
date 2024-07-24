@@ -34,6 +34,7 @@ function Form(){
           <label>Content :</label>
           <textarea type="text" onChange={(e)=>setS(e.target.value)} value={s} required/>
           <button onClick={saveAPIData}>Submit</button>
+        <img src="http://127.0.0.1:5000/video" alt="video" style={{marginLeft:"30%"}}/>
       </div>
   )   
   }
