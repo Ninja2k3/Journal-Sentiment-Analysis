@@ -20,40 +20,35 @@ function Analysis(){
 
     let {id} = useParams()
 
+    function myFunction(value, index, array) {
+        array[index] = [value,anscore[index]]; 
+      }
+      
     const getAPIData = async()=>{
       const url = 'http://127.0.0.1:5000/analysis/'+id
       let result = await fetch(url)
       result = await result.json()
-      setArr(result.s)
-      console.log(result)
+      var sent = result.s
+      var ans = result.anscore
+      console.log(ans)
       setAnscore(result.anscore)
+      setArr(result.s)
+      sent.forEach(myFunction)
+      setArr(sent)
+      console.log(sent)
       return 1;
   }
+
   useEffect(() => {
     getAPIData();
   }, []);
-  
 
-  const saveAPIData = async()=>{
-    const url = 'http://127.0.0.1:5000/analysis/'+id
-    console.log(url)
-    let formData = new FormData()
-    setArr(s.split('.'))
-    formData.append('string',s)
-    let result = await fetch(url,{
-        method:"POST",
-        body:formData
-    })
-   result = await result.json()
-   setAnscore(result.anscore)
-   //   window.location.reload()       
-}
 
     return(
     <div>
         {arr.map((i)=>
-        <p style={{color:col(parseFloat(anscore[x++]))}}>
-            {i}
+        <p style={{marginLeft:"10%",fontSize:"24px",fontWeight:"bold",color:col(parseFloat(anscore[x++]))}}>
+            {i[0]}
         </p>
         )}
         {console.log(analysis)}
