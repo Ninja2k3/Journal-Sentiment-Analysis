@@ -9,14 +9,14 @@ from matplotlib.figure import Figure
 import base64
 from io import BytesIO
 
-genai.configure(api_key="AIzaSyAX6mH3YvfK9ODjOiulTCu3W5FAFQHk4DM")
+genai.configure(api_key=INSERT KEY HERE)
 model = genai.GenerativeModel("gemini-pro")
 chat = model.start_chat(history=[])
 
 app = Flask(__name__)
 CORS(app)
-app.secret_key = '_5#y2LF4Q8zxec/'
-app.config["MONGO_URI"] = "mongodb://localhost:27017/journal"
+app.secret_key = MONGO KEY
+app.config["MONGO_URI"] = MONGO HOST URL
 mongo = PyMongo(app)
 
 camera=cv2.VideoCapture(0)
