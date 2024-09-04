@@ -47,10 +47,15 @@ function Analysis(){
     return(
     <div>
         {arr.map((i)=>
-        <p style={{marginLeft:"10%",fontSize:"24px",fontWeight:"bold",color:col(parseFloat(anscore[x++]))}}>
+        <div>
+        <div style={{border:"2px solid black",borderRadius:"10px",width:"80%",marginTop:"10px",margin:"auto"}}>
+        <div style={{marginTop:"5px"}}></div>
+        <p style={{color:col(parseFloat(anscore[x++])),textAlign:"center",fontFamily:"Arial",fontWeight:"bold",fontSize:"28px"}}>
             {i[0]}
         </p>
-        )}
+        </div>
+        </div>
+)}
         {console.log(analysis)}
         
         

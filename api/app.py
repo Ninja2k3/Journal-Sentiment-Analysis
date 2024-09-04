@@ -1,4 +1,4 @@
-from flask import Flask,render_template,Response,request,redirect,url_for,flash
+from flask import Flask,render_template,Response,request,redirect,url_for,flash,session
 import google.generativeai as genai
 from flask_cors import CORS
 from flask_pymongo import PyMongo
@@ -7,17 +7,20 @@ from bson.objectid import ObjectId
 import cv2
 from matplotlib.figure import Figure
 import base64
+from werkzeug.security import generate_password_hash, check_password_hash
 from io import BytesIO
 
-genai.configure(api_key=INSERT KEY HERE)
+genai.configure(api_key="AIzaSyAX6mH3YvfK9ODjOiulTCu3W5FAFQHk4DM")
 model = genai.GenerativeModel("gemini-pro")
 chat = model.start_chat(history=[])
 
+
 app = Flask(__name__)
 CORS(app)
-app.secret_key = MONGO KEY
-app.config["MONGO_URI"] = MONGO HOST URL
+app.secret_key = '_5#y2LF4Q8zxec/'
+app.config["MONGO_URI"] = "mongodb://localhost:27017/journal"
 mongo = PyMongo(app)
+users=mongo.db.users
 
 camera=cv2.VideoCapture(0)
 #backends = ["opencv","ssd","dlib","mtcnn","retinaface","mediapipe"]
@@ -46,8 +49,41 @@ def video():
 #    print(face)
 #    return ''
 
+@app.route("/register", methods=['GET','POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        
+        existing_user = users.find_one({'username': username})
+        if existing_user is None:
+            hashed_password = generate_password_hash(password, method='scrypt')
+            users.insert_one({'username': username, 'password': hashed_password})
+            flash('You have successfully registered!', 'success')
+            return redirect(url_for('login'))
+        else:
+            flash('Username already exists!', 'danger')
+    
+    return render_template('register.html')
+
+@app.route("/login", methods=['GET','POST'])
+def login():
+    print("fk siddart")
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        
+        user = users.find_one({'username': username})
+        if (user and check_password_hash(user['password'], password)):
+            return redirect("http://localhost:3000/entries")
+        else:
+            flash('Invalid credentials', 'danger')
+    
+    return render_template('login.html')
+
+
 @app.route("/analysis/<id>",methods=['GET','POST'])
-def login(id):
+def analysis(id):
     if request.method=='GET':
         entry = mongo.db.analysis.find_one({"_id":ObjectId(id)})
         text = entry["anscore"]
