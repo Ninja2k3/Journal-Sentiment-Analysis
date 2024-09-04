@@ -10,7 +10,7 @@ import base64
 from werkzeug.security import generate_password_hash, check_password_hash
 from io import BytesIO
 
-genai.configure(api_key="AIzaSyAX6mH3YvfK9ODjOiulTCu3W5FAFQHk4DM")
+genai.configure(api_key=INSERT_KEY_HERE)
 model = genai.GenerativeModel("gemini-pro")
 chat = model.start_chat(history=[])
 
