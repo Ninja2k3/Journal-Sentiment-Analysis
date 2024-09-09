@@ -1,4 +1,4 @@
-from flask import Flask,render_template,Response,request,redirect,url_for,flash,session
+from flask import Flask,render_template,Response,request,redirect,url_for,flash,session, jsonify
 import google.generativeai as genai
 from flask_cors import CORS
 from flask_pymongo import PyMongo
@@ -6,11 +6,13 @@ import datetime;
 from bson.objectid import ObjectId
 import cv2
 from matplotlib.figure import Figure
+import matplotlib.pyplot as plt
 import base64
+import pandas as pd
 from werkzeug.security import generate_password_hash, check_password_hash
 from io import BytesIO
 
-genai.configure(api_key=INSERT_KEY_HERE)
+genai.configure(api_key=YOUR_API_KEY)s
 model = genai.GenerativeModel("gemini-pro")
 chat = model.start_chat(history=[])
 
@@ -40,8 +42,8 @@ def generate_frames():
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 @app.route('/video')
-def video():
-    return Response(generate_frames(),mimetype='multipart/x-mixed-replace; boundary=frame')
+#def video():
+#    return Response(generate_frames(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 #@app.route('/')
 #def test():
@@ -68,7 +70,6 @@ def register():
 
 @app.route("/login", methods=['GET','POST'])
 def login():
-    print("fk siddart")
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
@@ -130,22 +131,43 @@ def home():
 
 @app.route("/plot",methods=['GET'])
 def plot():
-    if request.method=='GET':
-        entries = mongo.db.backend.find()
-        timestamps = []
-        averages = []
-        for entry in entries:
-            avg = mongo.db.analysis.find_one({"_id":entry["_id"]})['avg']
-            timestamps.append(entry["Timestamp"])
-            averages.append(avg)
-        fig = Figure(figsize=(12, 7), dpi=80)
-        ax = fig.subplots()
-        ax.plot(timestamps,averages)
-        # Save it to a temporary buffer.
-        buf = BytesIO()
-        fig.savefig(buf, format="png")
-        # Embed the result in the html output.
-        data = base64.b64encode(buf.getbuffer()).decode("ascii")
-        return {'img':data}
-        #return f"<img src='data:image/png;base64,{data}'/>"
+    try:
+        window_size1 = int(request.args.get('window_size1', 5))
+        window_size2 = int(request.args.get('window_size2', 10))
+        if window_size1 <= 0 or window_size2 <= 0:
+            return jsonify({'error': 'Window sizes must be positive integers.'}), 400
+    except ValueError:
+        return jsonify({'error': 'Invalid window size parameter.'}), 400
+
+    entries = mongo.db.backend.find()
+    timestamps = []
+    averages = []
+    for entry in entries:
+        avg = mongo.db.analysis.find_one({"_id": entry["_id"]})['avg']
+        timestamps.append(entry["Timestamp"])
+        averages.append(avg)
+    timestamps = pd.to_datetime(timestamps)
+    data = pd.DataFrame({'Timestamp': timestamps, 'Average': averages})
+    data['Date'] = data['Timestamp'].dt.date
+    daily_data = data.groupby('Date').agg({'Average': 'mean'}).reset_index()
+    daily_data['Timestamp'] = pd.to_datetime(daily_data['Date'])
+    daily_data[f'Moving_Avg_{window_size1}D'] = daily_data['Average'].rolling(window=window_size1, min_periods=1).mean()
+    daily_data[f'Moving_Avg_{window_size2}D'] = daily_data['Average'].rolling(window=window_size2, min_periods=1).mean()
+    fig = Figure(figsize=(12, 7), dpi=80)
+    ax = fig.subplots()
+
+    ax.bar(daily_data['Timestamp'], daily_data['Average'], label='Daily Sentiment Average', color='lightblue', alpha=0.6)
+    ax.plot(daily_data['Timestamp'], daily_data[f'Moving_Avg_{window_size1}D'], label=f'{window_size1}-Day Moving Average', color='red', linestyle='--', linewidth=2)
+    ax.plot(daily_data['Timestamp'], daily_data[f'Moving_Avg_{window_size2}D'], label=f'{window_size2}-Day Moving Average', color='green', linestyle='--', linewidth=2)
+    ax.set_xlabel('Date')
+    ax.set_ylabel('Sentiment Average')
+    ax.set_title('Daily Sentiment Analysis with Moving Averages')
+    plt.xticks(rotation=45)
+    ax.legend()
+
+    buf = BytesIO()
+    fig.savefig(buf, format="png")
+
+    img_data = base64.b64encode(buf.getbuffer()).decode("ascii")
+    return jsonify({'img': img_data})
     

@@ -8,6 +8,7 @@ import CreateEntry from "./Components/CreateEntry";
 import Entries from "./Components/Entries";
 import Navigation from "./Components/Navigation";
 import Plot from "./Components/Plot";
+import ClaimRewards from "./Components/coins";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <Route path="/entries" element={<MainLayout><Entries /></MainLayout>} />
       <Route path="/create" element={<Form/>}/>
       <Route path="/plot" element={<Plot/>}/>
+      <Route path="/coins" element={<ClaimRewards/>}/>
     </Routes>
   </BrowserRouter>  
   

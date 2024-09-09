@@ -1,0 +1,244 @@
+[
+    {
+      "_id": { "$oid": "66b1d7d225ab8f3ea050b391" },
+      "anscore": [ "0.8" ],
+      "s": [ "Had a great start to the month!" ],
+      "avg": 0.8
+    },
+    {
+      "_id": { "$oid": "66b1d7e225ab8f3ea050b392" },
+      "anscore": [ "-0.3" ],
+      "s": [ "Felt a bit under the weather today." ],
+      "avg": -0.3
+    },
+    {
+      "_id": { "$oid": "66b1d7f225ab8f3ea050b393" },
+      "anscore": [ "0.5" ],
+      "s": [ "Went for a walk in the park. The weather was nice." ],
+      "avg": 0.5
+    },
+    {
+      "_id": { "$oid": "66b1d80225ab8f3ea050b394" },
+      "anscore": [ "-0.7" ],
+      "s": [ "Had a rough day at work." ],
+      "avg": -0.7
+    },
+    {
+      "_id": { "$oid": "66b1d81225ab8f3ea050b395" },
+      "anscore": [ "0.9" ],
+      "s": [ "Received some good news today." ],
+      "avg": 0.9
+    },
+    {
+      "_id": { "$oid": "66b1d82225ab8f3ea050b396" },
+      "anscore": [ "-0.6" ],
+      "s": [ "Felt exhausted and stressed." ],
+      "avg": -0.6
+    },
+    {
+      "_id": { "$oid": "66b1d83225ab8f3ea050b397" },
+      "anscore": [ "0.7" ],
+      "s": [ "Spent time with family and friends." ],
+      "avg": 0.7
+    },
+    {
+      "_id": { "$oid": "66b1d84225ab8f3ea050b398" },
+      "anscore": [ "0.4" ],
+      "s": [ "Work was hectic but manageable." ],
+      "avg": 0.4
+    },
+    {
+      "_id": { "$oid": "66b1d85225ab8f3ea050b399" },
+      "anscore": [ "0.6" ],
+      "s": [ "Had a relaxing day off." ],
+      "avg": 0.6
+    },
+    {
+      "_id": { "$oid": "66b1d86225ab8f3ea050b39a" },
+      "anscore": [ "0.8" ],
+      "s": [ "Completed an important project." ],
+      "avg": 0.8
+    },
+    {
+      "_id": { "$oid": "66b1d87225ab8f3ea050b39b" },
+      "anscore": [ "-0.5" ],
+      "s": [ "Had a tough conversation with a friend." ],
+      "avg": -0.5
+    },
+    {
+      "_id": { "$oid": "66b1d88225ab8f3ea050b39c" },
+      "anscore": [ "0.6" ],
+      "s": [ "Enjoyed a peaceful evening." ],
+      "avg": 0.6
+    },
+    {
+      "_id": { "$oid": "66b1d89225ab8f3ea050b39d" },
+      "anscore": [ "0.7" ],
+      "s": [ "Had a busy but productive day at work." ],
+      "avg": 0.7
+    },
+    {
+      "_id": { "$oid": "66b1d8a225ab8f3ea050b39e" },
+      "anscore": [ "0.6" ],
+      "s": [ "Took some time for self-care." ],
+      "avg": 0.6
+    },
+    {
+      "_id": { "$oid": "66b1d8b225ab8f3ea050b39f" },
+      "anscore": [ "0.7" ],
+      "s": [ "Had a great workout today." ],
+      "avg": 0.7
+    },
+    {
+      "_id": { "$oid": "66b1d8c225ab8f3ea050b3a0" },
+      "anscore": [ "-0.4" ],
+      "s": [ "Feeling a bit overwhelmed." ],
+      "avg": -0.4
+    },
+    {
+      "_id": { "$oid": "66b1d8d225ab8f3ea050b3a1" },
+      "anscore": [ "0.6" ],
+      "s": [ "Had a good meeting with my team." ],
+      "avg": 0.6
+    },
+    {
+      "_id": { "$oid": "66b1d8e225ab8f3ea050b3a2" },
+      "anscore": [ "-0.5" ],
+      "s": [ "Felt a bit stressed about upcoming deadlines." ],
+      "avg": -0.5
+    },
+    {
+      "_id": { "$oid": "66b1d8f225ab8f3ea050b3a3" },
+      "anscore": [ "0.7" ],
+      "s": [ "Spent the day reading a good book." ],
+      "avg": 0.7
+    },
+    {
+      "_id": { "$oid": "66b1d90225ab8f3ea050b3a4" },
+      "anscore": [ "0.8" ],
+      "s": [ "Had a fun day with family." ],
+      "avg": 0.8
+    },
+    {
+      "_id": { "$oid": "66b1d91225ab8f3ea050b3a5" },
+      "anscore": [ "0.5" ],
+      "s": [ "Work was challenging but rewarding." ],
+      "avg": 0.5
+    },
+    {
+      "_id": { "$oid": "66b1d92225ab8f3ea050b3a6" },
+      "anscore": [ "0.6" ],
+      "s": [ "Took a relaxing walk in the evening." ],
+      "avg": 0.6
+    },
+    {
+      "_id": { "$oid": "66b1d93225ab8f3ea050b3a7" },
+      "anscore": [ "0.7" ],
+      "s": [ "Had a productive brainstorming session at work." ],
+      "avg": 0.7
+    },
+    {
+      "_id": { "$oid": "66b1d94225ab8f3ea050b3a8" },
+      "anscore": [ "0.7" ],
+      "s": [ "Feeling motivated to start a new project." ],
+      "avg": 0.7
+    },
+    {
+      "_id": { "$oid": "66b1d95225ab8f3ea050b3a9" },
+      "anscore": [ "-0.3" ],
+      "s": [ "Had a small argument with a colleague." ],
+      "avg": -0.3
+    },
+    {
+      "_id": { "$oid": "66b1d96225ab8f3ea050b3aa" },
+      "anscore": [ "0.6" ],
+      "s": [ "Spent some quality time alone." ],
+      "avg": 0.6
+    },
+    {
+      "_id": { "$oid": "66b1d97225ab8f3ea050b3ab" },
+      "anscore": [ "0.7" ],
+      "s": [ "Feeling optimistic about the future." ],
+      "avg": 0.7
+    },
+    {
+      "_id": { "$oid": "66b1d98225ab8f3ea050b3ac" },
+      "anscore": [ "0.6" ],
+      "s": [ "Had a calm and peaceful day." ],
+      "avg": 0.6
+    },
+    {
+      "_id": { "$oid": "66b1d99225ab8f3ea050b3ad" },
+      "anscore": [ "0.7" ],
+      "s": [ "Had a busy but fulfilling day." ],
+      "avg": 0.7
+    },
+    {
+      "_id": { "$oid": "66b1d9a225ab8f3ea050b3ae" },
+      "anscore": [ "0.4" ],
+      "s": [ "Had a reflective day." ],
+      "avg": 0.4
+    },
+        {
+          "_id": { "$oid": "66b1d9b225ab8f3ea050b3af" },
+          "anscore": [ "0.5" ],
+          "s": [ "Looking forward to the new month." ],
+          "avg": 0.5
+        },
+        {
+          "_id": { "$oid": "66b1d9c225ab8f3ea050b3b0" },
+          "anscore": [ "-0.7" ],
+          "s": [ "Had a stressful day at work." ],
+          "avg": -0.7
+        },
+        {
+          "_id": { "$oid": "66b1d9d225ab8f3ea050b3b1" },
+          "anscore": [ "0.8" ],
+          "s": [ "Had a productive day working on a side project." ],
+          "avg": 0.8
+        },
+        {
+          "_id": { "$oid": "66b1d9e225ab8f3ea050b3b2" },
+          "anscore": [ "0.6" ],
+          "s": [ "Spent the day organizing my workspace." ],
+          "avg": 0.6
+        },
+        {
+          "_id": { "$oid": "66b1d9f225ab8f3ea050b3b3" },
+          "anscore": [ "-0.5" ],
+          "s": [ "Feeling anxious about an upcoming event." ],
+          "avg": -0.5
+        },
+        {
+          "_id": { "$oid": "66b1da0225ab8f3ea050b3b4" },
+          "anscore": [ "0.7" ],
+          "s": [ "Had a creative breakthrough today." ],
+          "avg": 0.7
+        },
+        {
+          "_id": { "$oid": "66b1da1225ab8f3ea050b3b5" },
+          "anscore": [ "0.6" ],
+          "s": [ "Took a break from work to relax." ],
+          "avg": 0.6
+        },
+        {
+          "_id": { "$oid": "66b1da2225ab8f3ea050b3b6" },
+          "anscore": [ "0.7" ],
+          "s": [ "Feeling confident about the future." ],
+          "avg": 0.7
+        },
+        {
+          "_id": { "$oid": "66b1da3225ab8f3ea050b3b7" },
+          "anscore": [ "0.8" ],
+          "s": [ "Had a peaceful day with loved ones." ],
+          "avg": 0.8
+        },
+        {
+          "_id": { "$oid": "66b1da4225ab8f3ea050b3b8" },
+          "anscore": [ "0.6" ],
+          "s": [ "Reflecting on the month and feeling content." ],
+          "avg": 0.6
+        }
+]
+      
+  
