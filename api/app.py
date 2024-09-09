@@ -12,7 +12,7 @@ import pandas as pd
 from werkzeug.security import generate_password_hash, check_password_hash
 from io import BytesIO
 
-genai.configure(api_key=YOUR_API_KEY)
+genai.configure(api_key=YOUR_API_KEY)s
 model = genai.GenerativeModel("gemini-pro")
 chat = model.start_chat(history=[])
 
@@ -170,5 +170,4 @@ def plot():
 
     img_data = base64.b64encode(buf.getbuffer()).decode("ascii")
     return jsonify({'img': img_data})
-
     
